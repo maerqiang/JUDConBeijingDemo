@@ -21,24 +21,42 @@ For details please visit [www.raspberry.org] (http://www.raspberrypi.org)
 * After the Pi start up you can install jdk with "yum install openjdk"
 * Download lastest [JBoss7](http://www.jboss.org/jbossas/downloads)
 * Configure the xms and xmax
+* 
 
 Configure the httpd with modcluster
 --------------------
 * use this [guide](http://docs.jboss.org/mod_cluster/1.2.0/html/Quick_Start_Guide.html#d0e261) to install the httpd with modcluster.
 * back up your httpd configuration 
-* change the ip address and other content related to your enviroment in source file /etc/httpd-example.conf and overwite the old httpd.conf
+* change the ip address and other content related to your enviroment in source file etc/httpd-example.conf and overwite the old httpd.conf
 * start httpd and access the ip address you defined in the httpd to check if httpd works.  
 
-
-
-Deploy the app into jbossas7  
+Start the jbossas7 node  
 -------------------
+* Add the node name configuration to the standalone-full-ha.xml
+   <code>
+    <system-properties>
+        <property name="jboss.mod_cluster.jvmRoute" value="node1"/>
+    </system-properties>
+  </code>
+* Change the IP address and node name in start_jboss7.sh and copy it to $JBOSS_HOME/bin to start the jboss7.
+* Deploy the bin/jboss-as-helloworld-mdb.war (source code please find under src directory)
 
-
-
+Use the same steps to start another node in another machines. 
 
 Start the cluster and test
 ------------------- 
+* JMS demo:
+    >http://localhost/jboss-as-helloworld-mdb/HelloWorldMDBServletClient
+* Web Service
+    >service address :   http://localhost/jboss-as-helloworld-mdb/JMSService?wsdl
+    >wsdlURL :   http://localhost/jboss-as-helloworld-mdb/JMSService?wsdl 
+
+* Session replication Test
+    >http://localhost/jboss-as-helloworld-mdb/put.jsp
+    >http://localhost/jboss-as-helloworld-mdb/get.jsp
+* Cluster Test
+    >http://localhost/jboss-as-helloworld-mdd/server.jsp
+
 
 
 
