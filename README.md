@@ -19,12 +19,15 @@ Prepare the OS/JDK/JBoss7 for Pis
 [dd](http://en.wikipedia.org/wiki/Dd_(Unix)), or [Win32DiskImager](https://launchpad.net/win32-image-writer/+download) on Windows.
 For details please visit [www.raspberry.org] (http://www.raspberrypi.org)
 * After the Pi start up you can install jdk with "yum install openjdk"
-* Download lastest [JBoss7]
+* Download lastest [JBoss7](http://www.jboss.org/jbossas/downloads)
 * Configure the xms and xmax
 
 Configure the httpd with modcluster
 --------------------
-* 
+* use this [guide](http://docs.jboss.org/mod_cluster/1.2.0/html/Quick_Start_Guide.html#d0e261) to install the httpd with modcluster.
+* back up your httpd configuration 
+* change the ip address and other content related to your enviroment in source file /etc/httpd-example.conf and overwite the old httpd.conf
+* start httpd and access the ip address you defined in the httpd to check if httpd works.  
 
 
 
