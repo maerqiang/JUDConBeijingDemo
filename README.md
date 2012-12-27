@@ -34,9 +34,11 @@ Configure the httpd with modcluster
 Start the jbossas7 node  
 -------------------
 * Add the node name configuration to the standalone-full-ha.xml
+  ```xml
 		<system-properties>
 		  <property name="jboss.mod_cluster.jvmRoute" value="node1"/>
-		</system-properties>
+  		</system-properties>
+  ```
 * Change the IP address and node name in start_jboss7.sh and copy it to $JBOSS_HOME/bin to start the jboss7.
 * Deploy the bin/jboss-as-helloworld-mdb.war (source code please find under src directory)
 
