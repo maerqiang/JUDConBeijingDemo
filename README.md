@@ -20,8 +20,9 @@ Prepare the OS/JDK/JBoss7 for Pis
 For details please visit [www.raspberry.org] (http://www.raspberrypi.org)
 * After the Pi start up you can install jdk with "yum install openjdk"
 * Download lastest [JBoss7](http://www.jboss.org/jbossas/downloads)
-* Configure the xms and xmax
-* 
+* Configure the JAVA_OPTIONS for jboss7 use: -Xmx512M -XX:MaxPermSize=50M, you can also configure it in system env, please look at etc/.bashrc we use 
+  to configure the jvm options and system property.
+  
 
 Configure the httpd with modcluster
 --------------------
